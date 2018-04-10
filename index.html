@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+	Name: Devin Smaldore
+	Date: 4-05-16
+	Class: csc2210
+	Location: ~dsmaldore/public_html/csc2210/exams/prisonersDilemma/index.html
+	Comments: This file contains three webpages in one and links in many jquery, javascripts, etc files.
+-->
+<html>
+   <head>
+      <!-- Including all of the javascript and other pages that we need for this webpage -->
+      <title>Prisoner's Dilemma</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="stylesheet" href="../include/jquery.mobile-1.4.5.min.css" />
+      <script type="text/javascript" src="../include/jquery-2.2.0.min.js"></script>
+      <script type="text/javascript" src="../include/jquery.mobile-1.4.5.min.js"></script>
+      <script type="text/javascript" src="validate.js"></script>
+   </head>
+   <body>
+      <!-- Page one --> 
+      <div data-role="page" id="loginPage">
+        <div data-role="header">
+          <h1>Prisoner's Dilemma Game</h1>
+	  <!--if the game Page button is pressed, we check to make sure that the user is logged in -->
+          <a href="#" onClick="return areTheyLogged(document.loginInfo)">Game Page</a>
+        </div>
+      
+        <div data-role="main" class="ui-content">
+	  <form name="loginInfo">
+               Email: <input type="text" name="email" id="email" value="" placeholder="Email Address" data-clear-btn="true" /><br />
+               Password: <input type="password" name="password1" id="password" value="" placeholder="Password" data-clear-btn="true" /><br />
+	  <!-- When the Login button is clicked, we check to make sure the user has acutally logged in -->
+          <a href="#" onClick="return validatelogin(document.loginInfo)">Login</a>
+          </form>
+             <span id="lpMsg"></span>
+          <a href="#createAcc">Create a Login Account</a>
+        </div>
+      
+        <div data-role="footer">
+          <h1>Footer Text</h1>
+        </div>
+      </div> 
+      <!-- Page two --> 
+      <div data-role="page" data-dialog="true" id="createAcc">
+        <div data-role="header">
+          <h1>Create Account</h1>
+          <a href="#loginPage">Login</a>
+        </div>
+      
+        <div data-role="main" class="ui-content">
+	  <!-- the Create Account form -->
+	  <form name="signUpInfo">
+               First: <input type="text" name="fname" id="fname" value="" placeholder="First Name" data-clear-btn="true" /><br />
+               Last: <input type="text" name="lname" id="lname" value="" placeholder="Last Name" data-clear-btn="true"/><br  />
+               Email: <input type="text" name="email" id="email" value="" placeholder="Email Address" data-clear-btn="true" /><br />
+               Password: <input type="password" name="password1" id="password" value="" placeholder="Password" data-clear-btn="true" /><br />
+               Confirm Password: <input type="password" name="password2" id="password" value="" placeholder="Confirm Password" data-clear-btn="true" /><br />
+	  <!--When the create Account button is clicked, we check to make sure that this user does not already have an account
+		and we also check to make sure that all of the fields are validated -->
+          <a href="#" onClick="return validateSignUp(document.signUpInfo)">Create Account</a>
+	  </form>
+          <span id="caMsg"></span>
+          <a href="#loginPage">Go to Login Page</a>
+        </div>
+         
+        <div data-role="footer">
+          <h1>Footer Text In Dialog</h1>
+        </div>
+      </div> 
+   
+      <!-- Page three --> 
+      <div data-role="page" id="gameTime">
+        <div data-role="header">
+          <h1>Prisoner's Dilemma Game</h1>
+          <a href="#loginPage">Login</a>
+          <a href="#logout">Logout</a>
+        </div>
+      
+        <div data-role="main" class="ui-content">
+           <p>Game Time</p>
+        </div>
+        <span id="gameMsg"></span>
+      
+        <div data-role="footer">
+          <h1>Footer Text</h1>
+        </div>
+      </div>
+
+      <!-- Page four -->
+      <div data-role="page" id="logout">
+        <div data-role="header">
+          <h1>Logout</h1>
+          <a href="#loginPage">Login</a>
+        </div>
+
+        <div data-role="main" class="ui-content">
+           <p>Thank you for playing!</p>
+        </div>
+        <span id="gameMsg"></span>
+
+        <div data-role="footer">
+          <h1>Goodbye!</h1>
+        </div>
+      </div>
+ 
+   
+   </body>
+</html>
+
